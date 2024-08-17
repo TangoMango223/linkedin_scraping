@@ -2,12 +2,12 @@
 
 Code I created to scrape Linkedin CCD for Schulich networking opportunities, feeding into my "Schulich MMAI Network Cheatsheet" Google Sheet.
 
-The Google Sheet, designed to help Schulich MMAI Students find networking events, can be found [here](https://bit.ly/mmai_networking)
+The Google Sheet, designed to help Schulich MMAI Students find networking events, can be found [here](https://bit.ly/mmai_networking)!
 
 PROBLEM:
 
 - It was observed that, while the Schulich School of Business does offer information regarding networking events on their internal platform "Handshake", that it would often require tedious logging in and if a student wants to track the information, it's difficult and manually time consuming to complete.
-- Additionally, the email notifications sent to Schulich students is often later on versus immediately after the opportunity is posted on the platform.
+- Additionally, the email notifications sent to Schulich students is often later in the week or month, on versus immediately after the opportunity is posted on the Linkedin platform.
 
 SOLUTION:
 
@@ -21,13 +21,13 @@ THE PROCESS:
 - Successfully able to scrape Linkedin posts
 - Determine the "pattern" to the social media team's posts - i.e. using emojis and references links (app-aware-links) in their HTML structure of classes.
 - Extracted each post and the strings associated with it, cleaning each string to remove redundant information in the process
-- While not perfect, it does significantly reduce the amount of time for the Sheet Owner (me, Christine) in terms of time updating the Google Sheet.
+- While not perfect, it does significantly reduce the amount of time for the Sheet Owner (me, Christine) in terms of time updating the Google Sheet. Currently, I tediously and manually write down the name, event date, location, and hyperlink the registration webpage, but the Linkedin page has this information already.
 
 LIMITATIONS:
 
 - Based on human observations of post patterns from Schulich CCD Social Media Team. If they change format of posting events, the code may no longer work.
 - Based on last 3 months post observation, this is unlikely.
-- The extraction is meant to reduce the amount of time for myself, Christine, to update the Schulich MMAI networking Google Sheet.
+- The extraction is meant to reduce the amount of time for myself, Christine, to update the Schulich MMAI Program networking Google Sheet.
 
 FUTURE + NEXT STEPS:
 
