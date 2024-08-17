@@ -1,0 +1,7 @@
+gspread
+oauth2client
+selenium
+pandas
+gspread_dataframe
+bs4
+python-dotenv
