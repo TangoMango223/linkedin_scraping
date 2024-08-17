@@ -55,7 +55,6 @@ def initialize_driver():
 
 # ---- Login to Linkedin. Mary's Login was saved to Cookies ---
 
-
 def login_linkedin():
     # Open the LinkedIn page
     url = "https://www.linkedin.com/in/schulichccd/recent-activity/all/"
