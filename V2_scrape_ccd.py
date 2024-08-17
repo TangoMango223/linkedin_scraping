@@ -63,7 +63,7 @@ def login_linkedin():
     time.sleep(5)
 
     # Load cookies to a variable from a file
-    with open('/Users/christine/VSCode/MBAN 6110 - remote/schulich_MBAN6110/Linkedin_scrape/cookies.json', 'r') as file:
+    with open('/Users/christine/VSCode/linkedin_scraping/linkedin_scraping/cookies.json', 'r') as file:
         cookies = json.load(file)
 
     # Set stored cookies to maintain the session
@@ -272,7 +272,7 @@ df = pd.DataFrame(final_list)
 
 # Step 1: Authentication
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name('/Users/christine/VSCode/MBAN 6110 - remote/schulich_MBAN6110/Linkedin_scrape/linkedin_scraping.json', scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name('/Users/christine/VSCode/linkedin_scraping/linkedin_scraping/linkedin_scraping.json', scope)
 client = gspread.authorize(creds)
 
 # Step 2: Open the Google Sheet using the Spreadsheet ID
