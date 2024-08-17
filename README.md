@@ -2,7 +2,8 @@
 
 Code I created to scrape Linkedin CCD for Schulich networking opportunities, feeding into my "Schulich MMAI Network Cheatsheet" Google Sheet.
 
-The Google Sheet, designed to help Schulich MMAI Students find networking events, can be found here: bit.ly/mmai_networking
+The Google Sheet, designed to help Schulich MMAI Students find networking events, can be found here: <br> 
+bit.ly/mmai_networking
 
 PROBLEM:
 
