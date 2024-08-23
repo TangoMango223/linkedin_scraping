@@ -272,7 +272,8 @@ df = pd.DataFrame(final_list)
 
 # Step 1: Authentication
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name('/Users/christine/VSCode/linkedin_scraping/linkedin_scraping/linkedin_scraping.json', scope)
+
+creds = ServiceAccountCredentials.from_json_keyfile_name('/Users/christine/VSCode/linkedin_scraping/linkedin_scraping/scrapingkey_2.json', scope)
 client = gspread.authorize(creds)
 
 # Step 2: Open the Google Sheet using the Spreadsheet ID
