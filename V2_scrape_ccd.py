@@ -280,7 +280,7 @@ spreadsheet_id = '1duHH_x9eqMIu3Ci727bL2D71mksA_29DC3nKm2m09jM'  # Replace with 
 spreadsheet = client.open_by_key(spreadsheet_id)
 
 # Step 3: Access this specific sheet and tab
-worksheet_name = 'ccd_linkedin_scrape_dump'  # Replace with the actual name of the worksheet
+worksheet_name = 'ccd_dump'  # Replace with the actual name of the worksheet
 sheet = spreadsheet.worksheet(worksheet_name)
 
 # Step 4: Clear sheet, then dump latest scrap from Schulich CCD Linkedin page:
