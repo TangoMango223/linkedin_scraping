@@ -1,4 +1,4 @@
-# 👔 Scrapping Linkedin - Schulich CCD Activity Posts
+# 👔 Scraping Linkedin - Schulich CCD Activity Posts
 
 Code I created to scrape Linkedin CCD for Schulich networking opportunities, feeding into my "Schulich MMAI Network Cheatsheet" Google Sheet.
 
