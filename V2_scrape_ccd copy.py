@@ -123,9 +123,11 @@ login_linkedin()
 # Scroll and scrape content
 scraped_texts = scroll_and_scrape(driver, num_scrolls=20, scroll_amount=500)
 
+print(scraped_texts)
+
 # Print the collected texts, give it a few seconds before closing
-for text in scraped_texts:
-    print(text)
+# for text in scraped_texts:
+#     print(text)
 
 # Time:
 time.sleep(2)
@@ -140,40 +142,51 @@ driver.quit()
 cleaned_repo = list(set(scraped_texts))
 
 
-# Extract Info:
-def extract_all_event_info(posts):
-    extracted_info = []
+# -------- Code not Used anymore  --------
 
-    for post in posts:
-        # Find all event names before each 📅 emoji
-        event_names = re.findall(r"(.*?)📅", post)
+# # Extract Info:
+# def extract_all_event_info(posts):
+#     extracted_info = []
 
-        # Find all event dates associated with the 📅 emoji
-        event_dates = re.findall(r"📅\s*(.*?)\s*(?=📍|📝|https://lnkd|$)", post)
+#     for post in posts:
+#         # Find all event names before each 📅 emoji
+#         event_names = re.findall(r"(.*?)📅", post)
 
-        # Find all event types associated with the 📍 emoji
-        event_types = re.findall(r"📍\s*(.*?)\s*(?=📝|https://lnkd|$)", post)
+#         # Find all event dates associated with the 📅 emoji
+#         event_dates = re.findall(
+#             r"📅\s*(.*?)\s*(?=📍|📝|https://lnkd\.in/\w{8}|$)", post
+#         )
 
-        # Find all signup URLs associated with 📝 or directly with the https://lnkd link
-        signup_urls = re.findall(r"(https://lnkd[^\s\n]+)(?=\n|$)", post)
+#         # Find all event types associated with the 📍 emoji
+#         event_types = re.findall(r"📍\s*(.*?)\s*(?=📝|https://lnkd\.in/\w{8}|$)", post)
 
-        # Combine the results into a structured format
-        for i in range(
-            max(len(event_names), len(event_dates), len(event_types), len(signup_urls))
-        ):
-            event_info = {
-                "event_name": event_names[i].strip() if i < len(event_names) else "N/A",
-                "event_date": event_dates[i].strip() if i < len(event_dates) else "N/A",
-                "event_type": event_types[i].strip() if i < len(event_types) else "N/A",
-                "signup_url": signup_urls[i].strip() if i < len(signup_urls) else "N/A",
-            }
-            extracted_info.append(event_info)
+#         # Find all signup URLs associated with 📝 or directly with the https://lnkd link
+#         signup_urls = re.findall(r"(https://lnkd\.in/\w{8})", post)
 
-    return extracted_info
+#         # Combine the results into a structured format
+#         for i in range(
+#             max(len(event_names), len(event_dates), len(event_types), len(signup_urls))
+#         ):
+#             event_info = {
+#                 "event_name": event_names[i].strip() if i < len(event_names) else "N/A",
+#                 "event_date": event_dates[i].strip() if i < len(event_dates) else "N/A",
+#                 "event_type": event_types[i].strip() if i < len(event_types) else "N/A",
+#                 "signup_url": signup_urls[i].strip() if i < len(signup_urls) else "N/A",
+#             }
+#             extracted_info.append(event_info)
+
+#     return extracted_info
 
 
-# Assuming scraped_texts is your list of posts
-new_info = extract_all_event_info(scraped_texts)
+# # Assuming scraped_texts is your list of posts
+# new_info = extract_all_event_info(scraped_texts)
+
+
+# # Check results
+# print(new_info)
+
+# -------- Ignore Above ^ --------
+
 
 # Filter posts to include only those containing "job opportunities" or "events"
 filtered_posts = [post for post in cleaned_repo if "event" or "kickoff" in post.lower()]
@@ -193,7 +206,7 @@ import re
 def split_based_on_delimiters(text_list):
     # Define the pattern to split on periods, ❗ emoji, and LinkedIn URLs
     # pattern = r'(\.|❗|https://lnkd[^\s]+)'
-    pattern = r"(❗|https://lnkd[^\s]+)"
+    pattern = r"(❗|https://lnkd\.in/\w{8})"
 
     all_segments = []
 
@@ -235,9 +248,9 @@ filter_events_seg = [seg for seg in new_entries if "📅" in seg]
 # Remove all instances of ⬆  emoji:
 new_list = [entry.replace("⬆", "") for entry in filter_events_seg]
 
+# Clean Step #2 - Split on emojis commonly found in CCD posts:
+split_pattern = r"(📅.*?|📍.*?|📝.*?|👗.*?|https://lnkd\.in/\w{8})"
 
-# Clean Step #2 - Split iva emojis commonly found in CCD posts:
-split_pattern = r"(📅.*?|📍.*?|📝.*?|👗 .*?|https://[^\s]+|\.)"
 stuff = []
 
 for line in new_list:
@@ -267,8 +280,6 @@ def clean_event_postings(event_lists):
 
         # Remove the emojis now:
         the_list = [item for item in the_list if item not in ["📅", "📍", "📝"]]
-
-        # Remove the words "registration deadline:"
 
         # Add the cleaned list to the final result if it's not empty about th
         if the_list:
