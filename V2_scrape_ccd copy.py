@@ -4,6 +4,7 @@
 # Import statements
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
@@ -14,6 +15,9 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
 from gspread_dataframe import set_with_dataframe
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service as ChromeService
 
 # Check pandas
 import pandas as pd
@@ -22,6 +26,8 @@ import pandas as pd
 import os
 from dotenv import load_dotenv
 
+
+# driver = webdriver.Chrome(ChromeDriverManager().install())
 
 # Setup:
 
@@ -39,23 +45,23 @@ driver = None
 
 
 def initialize_driver():
-    # Set up Chrome options to pass:
+    # Set up Chrome options:
     options = webdriver.ChromeOptions()
 
     # Path to your Chrome profile
     options.add_argument(
         "user-data-dir=/Users/christine/Library/Application Support/Google/Chrome/Default"
     )  # macOS example
-    # options.add_argument("profile-directory=Default")  # Replace with the profile you want to use
+    # options.add_argument("profile-directory=Default")  # Specify profile if needed
     options.add_experimental_option("detach", True)
 
-    # Use the correct path to chromedriver
-    chrome_service = ChromeService(
-        "/Users/christine/chromedriver-mac-arm64/chromedriver"
-    )
+    # Automatically install and update ChromeDriver each time this code is run
+    chrome_service = ChromeService(ChromeDriverManager().install())
+
+    # Initialize the Chrome driver with the automatically updated driver and your options
     driver = webdriver.Chrome(service=chrome_service, options=options)
 
-    # Return:
+    # Return the driver instance
     return driver
 
 
