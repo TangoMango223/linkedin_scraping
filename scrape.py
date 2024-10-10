@@ -5,6 +5,8 @@
 # Written by: Christine Tang
 
 # Import statements
+import os
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
@@ -132,7 +134,7 @@ login_linkedin()
 # Scroll and scrape content
 scraped_texts = scroll_and_scrape(driver, num_scrolls=20, scroll_amount=500)
 
-print(scraped_texts)
+# print(scraped_texts)
 
 # Print the collected texts, give it a few seconds before closing
 # for text in scraped_texts:
@@ -333,3 +335,14 @@ sheet.clear()
 
 # Dump this into the sheet
 set_with_dataframe(sheet, df)
+
+
+# -- Ending Message for my computer ---
+
+def show_notification(title, message):
+    os.system(f'''
+              osascript -e 'display notification "{message}" with title "{title}"'
+              ''')
+
+# Call the function to display the notification
+show_notification("CCD Linkedin Scrape Complete", "The LinkedIn scraping script has finished running.")
