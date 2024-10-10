@@ -203,9 +203,9 @@ filtered_posts = [post for post in cleaned_repo if "event" or "kickoff" in post.
 # Remove duplicates:
 unique_event_posts = list(set(filtered_posts))
 
-# Check:
-for post in unique_event_posts:
-    print(post)
+# # Check:
+# for post in unique_event_posts:
+#     print(post)
 
 
 # -------- Split by delimiters and extract from each string in the list ----------
