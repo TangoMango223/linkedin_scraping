@@ -1,3 +1,6 @@
+# Executable:
+#!/usr/bin/env python3
+
 # Python Code to scrape Schulich CCD page for Linkedin networking opportunities
 # Written by: Christine Tang
 
