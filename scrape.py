@@ -339,10 +339,12 @@ set_with_dataframe(sheet, df)
 
 # -- Ending Message for my computer ---
 
-def show_notification(title, message):
-    os.system(f'''
-              osascript -e 'display notification "{message}" with title "{title}"'
-              ''')
+# def show_notification(title, message):
+#     os.system(f'''
+#               osascript -e 'display notification "{message}" with title "{title}"'
+#               ''')
 
-# Call the function to display the notification
-show_notification("CCD Linkedin Scrape Complete", "The LinkedIn scraping script has finished running.")
+# # Call the function to display the notification
+# show_notification("CCD Linkedin Scrape Complete", "The LinkedIn scraping script has finished running.")
+
+print("Linkedin CCD Scraping Complete: The LinkedIn scraping script has finished running!")
